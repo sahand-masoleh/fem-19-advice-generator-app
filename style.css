@@ -45,6 +45,11 @@ body {
 	gap: 1em;
 
 	position: relative;
+	transition: opacity 0.25s;
+}
+
+.fade {
+	opacity: 0;
 }
 
 .type {
@@ -67,6 +72,10 @@ body {
 	content: close-quote;
 }
 
+.divider {
+	max-width: 100%;
+}
+
 .refresh {
 	border: none;
 	background-color: var(--neon-green);
@@ -77,6 +86,7 @@ body {
 	bottom: 0;
 	transform: translateY(50%);
 	cursor: pointer;
+	transition: box-shadow 0.1s;
 }
 
 .refresh:hover {
@@ -85,11 +95,33 @@ body {
 
 .footer {
 	margin-top: auto;
-	font-size: 0.25em;
+	font-size: 0.35em;
 	text-align: center;
 	color: var(--grayish-blue);
 }
 
 .footer a {
-	color: var(--light-cyan);
+	color: var(--neon-green);
+}
+
+@media screen and (min-width: 480px) {
+	body {
+		align-items: center;
+		background-color: var(--dark-blue);
+	}
+
+	.card {
+		max-width: 20em;
+		margin: 0 10%;
+		padding: 2em 1.5em;
+		gap: 1em;
+	}
+
+	.advice {
+		font-size: 1em;
+	}
+
+	.footer {
+		font-size: 0.35em;
+	}
 }

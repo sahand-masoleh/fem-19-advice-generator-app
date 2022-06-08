@@ -1,3 +1,4 @@
+const card = document.querySelector(".card");
 const type = document.querySelector(".type");
 const advice = document.querySelector(".advice");
 
@@ -9,9 +10,12 @@ async function fetchNewAdvice() {
 		let adviceObject = await fetch("https://api.adviceslip.com/advice");
 		adviceObject = await adviceObject.json();
 		const { advice: newAdvice, id } = adviceObject.slip;
-		console.log(adviceObject.slip);
-		advice.innerText = `${newAdvice}`;
-		type.innerText = `advice #${id}`;
+		card.classList.add("fade");
+		card.addEventListener("transitionend", () => {
+			advice.innerText = `${newAdvice}`;
+			type.innerText = `advice #${id}`;
+			card.classList.remove("fade");
+		});
 	} catch (error) {
 		console.log(error);
 	}
